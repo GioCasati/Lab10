@@ -9,4 +9,13 @@ class Controller:
         self._model = model
 
     def handleCalcola(self, e):
-        pass
+        anno_str = self._view._txtAnno.value
+        if not anno_str:
+            self._view.create_alert("Inserire un anno!")
+            return
+        try:
+            anno = int(anno_str)
+        except ValueError:
+            self._view.create_alert("Inserire un anno intero!")
+            return
+        self._view.create_alert("OK")
