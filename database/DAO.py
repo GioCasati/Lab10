@@ -13,7 +13,7 @@ class DAO():
             query = """select c.StateAbb as s1abb, c.CCode as s1code, c.StateNme as s1name,
                             c3.StateAbb as s2abb, c3.CCode as s2code, c3.StateNme as s2name
                         from country c, contiguity c2 , country c3 
-                        where c.StateAbb  = c2.state1ab  and c3.StateAbb = c2.state2ab and c.StateAbb < c3.StateAbb
+                        where c.CCode  = c2.state1no  and c3.CCode = c2.state2no and c.StateAbb < c3.StateAbb
                             and c2.`year` <= %s and c2.conttype = 1"""
             cursor.execute(query, (year,))
             result = []

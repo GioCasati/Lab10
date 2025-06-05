@@ -24,8 +24,14 @@ class View(ft.UserControl):
         #ROW with controls
         self._txtAnno = ft.TextField(label="Anno")
         self._btnCalcola = ft.ElevatedButton(text="Calcola Confini", on_click=self._controller.handleCalcola)
+        self._ddStatoPartenza = ft.Dropdown(label='Seleziona stato di partenza', disabled=True)
+        self._btnRicerca = ft.ElevatedButton(text="Ricerca Raggiungibili",
+                                             on_click=self._controller.handleRicerca,
+                                             disabled=True)
         row1 = ft.Row([self._txtAnno, self._btnCalcola], alignment=ft.MainAxisAlignment.CENTER)
+        row2 = ft.Row([self._ddStatoPartenza, self._btnRicerca], alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row1)
+        self._page.controls.append(row2)
         # List View where the reply is printed
         self._txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=False)
         self._page.controls.append(self._txt_result)
